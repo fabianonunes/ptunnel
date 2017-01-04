@@ -75,7 +75,7 @@ class TunnelServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
         self.tunnel=tunnel
         self.proxy=proxy
         self.direct_as_fallback=direct
-        SocketServer.TCPServer.__init__(self,('localhost', tunnel[0]),Tunnel)
+        SocketServer.TCPServer.__init__(self,('0.0.0.0', tunnel[0]),Tunnel)
         
 class BackForwarder(threading.Thread): 
     def __init__(self, remote_socket, server_socket, closed_callback=None):
