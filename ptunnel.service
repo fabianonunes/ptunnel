@@ -1,0 +1,10 @@
+[Unit]
+Description=HTTP Tunnel for GMail SMTP
+After=network.target
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/env python /opt/ptunnel/src/ptunnel.py -d -p localhost:3128 4650:smtp.gmail.com:465
+
+[Install]
+WantedBy=multi-user.target
